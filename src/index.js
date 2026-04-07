@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import connectDB from "./db/index.js";
 
 dotenv.config({ path: "./env" });
+import app from "./app.js";
 
 connectDB()
   .then(() => {
@@ -11,12 +12,13 @@ connectDB()
     });
     app.on("error", (error) => {
       console.log("Error", error);
-      throw error
+      throw error;
     });
   })
   .catch((err) => {
-    consolelog("Mongodb connections failed", err);
+    console.log("Mongodb connections failed", err);
   });
+connectDB();
 
 /*
 import express from "express";
